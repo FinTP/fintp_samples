@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	
+	<configSections>
+		<section name="Fetcher" type="MQ" on="true"/>
+		<section name="Publisher" type="MQ" on="true"/>
+		
+		<section name="Filter_I1" chain="Fetcher" type="TEMPLATE" order="0" Template="/home/fintp/fintp/connectors/SWIFT.template.xml"  /> 
+		<section name="Filter_I2" chain="Fetcher" type="BASE64" order="1" 
+			XPATH="/root/Transformed/SWIFTFORMAT" KeepOriginal="yes"/> 
+		<section name="Filter_I3" chain="Fetcher" type="XSLT" order="2" XSLTFILE="/home/fintp/fintp/connectors/SWIFT2FINTP.xslt" />
+		<section name="Filter_I4" chain="Fetcher" type="MQ" order="3" MQManagerType="AMQ"
+			WMQQueue="FromConnectors" WMQQMgr="qPIQM.MainHub"
+			MQURI="tcp://localhost:61616" />
+		
+		<section name="Filter_O1" chain="Publisher" type="MQ" MQManagerType="AMQ" order="0" 
+			WMQQueue="BOSEPA.ToConnector" WMQQMgr="qPIQM.MainHub"
+			MQURI="tcp://localhost:61616" />
+	</configSections>
+	
+	
+			
+	<appSettings>	
+		<add key="ServiceName" value="BOSEPAOut" />
+		<add key="AppToMQ.Type" value="AMQ" />
+		<add key="AppToMQSeries.AppQueue" value="BOSAAtoFINTP"/>
+		<add key="AppToMQSeries.BackupQueue" value="BOSAAtoFINTP.bck" />
+		<add key="AppToMQSeries.QueueManager" value="qPIQM.MainHub"/>
+		<add key="AppToMQ.MQURI" value="tcp://localhost:61616"/>
+		<add key="AppToMQSeries.StrictSWIFTFormat" value="SAA_FIN" />
+		<!--add key="AppToMQSeries.LAUCertificateFile" value="1234567890ABCDEE0987654321EEDCBA" /-->
+		
+		<add key="MQToApp.Type" value="AMQ" />
+		<add key="MQSeriesToApp.WatchQueue" value="BOSEPA.ToConnector"/>
+		<add key="MQSeriesToApp.AppQueue" value="FINTPtoBOSAA"/>
+		<add key="MQSeriesToApp.QueueManager" value="qPIQM.MainHub"/>
+		<add key="MQToApp.MQURI" value="tcp://localhost:61616"/>
+		<!--add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA" /-->
+		<add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA_FIN" />
+		<!--add key="MQSeriesToApp.LAUCertificateFile" value="1234567890ABCDEE0987654321EEDCBA" /-->
+				                                              	   
+
+		
+		<!--add key="LogMaxLines" value="500000"/-->
+
+		<add key="EventsThreaded" value="true" />
+		<add key="Log.PublisherMQ.Type" value="AMQ" />
+		<add key="Log.PublisherToMQ" value="true" />				
+		<add key="Log.PublisherMQ.QM" value="qPIQM.MainHub" />
+		<add key="Log.PublisherMQ.Q" value="Events" />	
+		<add key="LogPrefix" value="../logs/BOSEPAConnector" />
+		<add key="Log.PublisherMQ.URI" value="tcp://localhost:61616" />
+
+	
+		
+	</appSettings>
+</configuration>

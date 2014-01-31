@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Template idTemplate="SWIFTFORMAT" xmlns="http://tempuri.org/qPCTemplateSchema.xsd" crlfMode="LF">
+	<InnerTemplate idInner="SWIFTFORMAT">
+		<add key="InnerTemplate" value="AckNack" friendlyName="AckNack" maxOccurs="1" minOccurs="1" output="required"/>
+		<add key="Regex" value="\{1:(?&lt;data&gt;[^\}]*)\}" friendlyName="Field1" maxOccurs="1" minOccurs="1"/>
+		<add key="Regex" value="\{2:(?&lt;data&gt;[^\}]*)\}" friendlyName="Field2" maxOccurs="1" minOccurs="1"/>
+		<add key="InnerTemplate" value="Field3" friendlyName="Field3" maxOccurs="1"/>
+		<add key="InnerTemplate" value="Field4" friendlyName="Field4" maxOccurs="1" minOccurs="1"/>
+		<add key="Regex" value="\{5:(?&lt;data&gt;.*)\}" friendlyName="Field5" maxOccurs="1" />
+	</InnerTemplate>
+	<InnerTemplate idInner="AckNack" cond="every">
+		<add key="Regex" value="\{1:F21(?&lt;data&gt;[^\}]*)\}\{4:\s*\n*" friendlyName="AckNack_Field1" maxOccurs="1" minOccurs="1"/>
+		<add key="InnerTemplate" value="AckNack_Field4" friendlyName="AckNack_Field4" maxOccurs="1" />
+	</InnerTemplate>
+	<InnerTemplate idInner="AckNack_Field4">
+		<add key="Regex" value="\{(?&lt;name&gt;[\d]{3})\:(?&lt;value&gt;\w*)\}+" friendlyName="AckNack_Field" succ="true"/>
+	</InnerTemplate>
+	<InnerTemplate idInner="Field3">
+		<add key="Regex" value="\{3:\s*\n*" maxOccurs="1" minOccurs="1"/>
+		<add key="Regex" value="\{(?&lt;name&gt;[\d]{3}):(?&lt;value&gt;\w*)\}+" friendlyName="Field" />
+	</InnerTemplate>
+	<InnerTemplate idInner="Field4">
+		<add key="Regex" value="\{4:\s*\n*" maxOccurs="1" minOccurs="1"/>
+		<!-- add key="Regex" value=":(?&lt;name&gt;\d{2}\w{0,1}):(?&lt;value&gt;(:){0,1}((\-(?!}))|([^:|}|\-])|(:(?!(\d{2}\w{0,1}:))))*)\n*" friendlyName="Field" /-->
+		<!--add key="Regex" value=":(?&lt;name&gt;\d{2}\w{0,1}):(?&lt;value&gt;:{0,1}(?:\-(?!\})|[\w\/\.\,\s])*)\n*" friendlyName="Field" /-->
+		<add key="Regex" value=":(?&lt;name&gt;\d{2}\w{0,1}):(?&lt;value&gt;:{0,1}(?:\-(?!\})|[\w\/\.\,\s\+])*)\n*" friendlyName="Field" />
+		<!--add key="Regex" value=":(?&lt;name&gt;\d{2}\w{0,1}):(?&lt;value&gt;:{0,1}(?:-(?!\})|\:(?!\d{2}\w?:)|[^-:\}]*)*)\n*" friendlyName="Field" /-->
+		<add key="Regex" value="\{(?&lt;name&gt;[\d]{3})\:(?&lt;value&gt;[\w/]*)\}+" friendlyName="Field" succ="true"/>
+		<add key="Regex" value="\-\}|\}" maxOccurs="1"/>
+	</InnerTemplate>
+</Template>

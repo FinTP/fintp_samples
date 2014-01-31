@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<configSections>
+		<section name="Fetcher" type="MQ" on="true"/>
+		<section name="Publisher" type="MQ" on="true"/>
+		<section name="Filter_I1" chain="Fetcher" type="BASE64" order="1" XPATH="/root/*" KeepOriginal="yes" /> 
+		<section name="Filter_I2" chain="Fetcher" type="XSLT" order="2" XSLTFILE="/home/fintp/fintp/connectors/SEPA2FINTP.xslt" />
+		<section name="Filter_I3" chain="Fetcher" type="MQ" MQManagerType="WMQ"
+			order="3" WMQQueue="FromConnectors" WMQQMgr="FINTPQM.MainHub"
+			MQURI="FromConnectors/TCP/193.1.1.77(1414)" />
+		<section name="Filter_O1" chain="Publisher" type="MQ" MQManagerType="WMQ"
+			order="0" batch="true"	WMQQueue="qPSEPA.ToConnector" WMQQMgr="FINTPQM.MainHub"
+			MQURI="FromConnectors/TCP/193.1.1.77(1414)" />
+	</configSections>
+	<appSettings>	
+		
+		<add key="ServiceName" value="SEPAIn" />
+		<add key="AppToMQ.Type" value="WMQ" />
+		<add key="AppToMQSeries.AppQueue" value="qPIMQHA.FromApp" />
+		<add key="AppToMQSeries.BackupQueue" value="qPIMQHA.FromApp.bck" />
+		<add key="AppToMQSeries.QueueManager" value="FINTPQM.MainHub" />
+		<add key="AppToMQ.MQURI" value="FromConnectors/TCP/193.1.1.77(1414)" />
+		<add key="AppToMQSeries.BatchManagerType" value="XMLfile" />
+		<add key="AppToMQSeries.BatchXsltFile" value="/home/fintp/fintp/connectors/getGroupElement.SEPA.EBA.xslt" />
+		<add key="AppToMQSeries.StrictSWIFTFormat" value="SAA_FILEACT" /><!--Strip and process LAU prefix for SAA interface -->
+		<!--add key="AppToMQSeries.LAUCertificateFile" value="1234567890ABCDe.0987654321.eDCBA" /-->
+		
+		
+		<add key="MQToApp.Type" value="WMQ" />
+		<add key="MQSeriesToApp.WatchQueue" value="qPSEPA.ToConnector" />
+		<add key="MQSeriesToApp.AppQueue" value="qPIMQHA.ToApp" />
+		<add key="MQSeriesToApp.RepliesQueue" value="qPIMQHA.FromApp" />
+		<add key="MQSeriesToApp.QueueManager" value="FINTPQM.MainHub" />
+		<add key="MQToApp.MQURI" value="FromConnectors/TCP/193.1.1.77(1414)" />
+		<add key="MQSeriesToApp.MessageFormat" value="MQFMT_NONE  " />
+		<add key="MQSeriesToApp.BatchManagerType" value="XMLfile" />
+		<add key="MQSeriesToApp.BatchXsltFile" value="/home/fintp/fintp/connectors/putGroupElement.SEPA.EBA.xslt" />
+		<add key="MQSeriesToApp.ParamFileXslt" value="/home/fintp/fintp/connectors/ParamFileGen.xslt" /><!-- Generate Partner message SAA-MQHA-FILEACT way-->
+		<add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA_FILEACT" /><!--Add prefix and LAU for SAA interface -->
+		<!--add key="MQSeriesToApp.LAUCertificateFile" value="1234567890ABCDe.0987654321.eDCBA" /-->
+		
+		
+		
+		
+		<!--add key="MQSeriesToApp.BatchXPath" value="S2SCTIcf:FIToFICstmrCdtTrf/CdtTrfTxInf|S2SCTIcf:PmtRtr/TxInf|S2SCTIcf:FIToFIPmtCxlReq/Undrlyg/TxInf|S2SCTIcf:RsltnOfInvstgtn/CxlDtls/TxInfAndSts" /-->
+		
+		<!-- pacs008-->
+		<!--add key="MQSeriesToApp.BatchXPath_urn:S2SCTIcf:xsd:$SCTIcfBlkCredTrf" value="S2SCTIcf:FIToFICstmrCdtTrf/CdtTrfTxInf" /-->
+		<!-- pacs004-->
+		<!--add key="MQSeriesToApp.BatchXPath_urn:S2SCTIcf:xsd:$SCTIcfBlkCredTrf" value="S2SCTIcf:PmtRtr/TxInf" /-->
+		<!-- camt056-->
+		<!--add key="MQSeriesToApp.BatchXPath_urn:S2SCTIcf:xsd:$SCTIcfBlkCredTrf" value="S2SCTIcf:FIToFIPmtCxlReq/Undrlyg/TxInf" /-->
+		<!-- camt029-->
+		<!--add key="MQSeriesToApp.BatchXPath_urn:S2SCTIcf:xsd:$SCTIcfBlkCredTrf" value="S2SCTIcf:RsltnOfInvstgtn/CxlDtls/TxInfAndSts" /-->
+
+		
+		
+
+		<add key="MQSeriesToApp.TransformFile" value="/home/fintp/fintp/connectors/Cleanup.xslt" />
+		
+		
+								
+		<!--add key="LogMaxLines" value="500000"/-->
+		<add key="EventsThreaded" value="true" />
+		<add key="Log.PublisherToMQ" value="true" />
+		<add key="Log.PublisherMQ.Type" value="WMQ" />		
+		<add key="Log.PublisherMQ.QM" value="FINTPQM.MainHub" />
+		<add key="Log.PublisherMQ.Q" value="Events" />	
+		<add key="LogPrefix" value="../logs/SEPAConnector" />
+		<add key="Log.PublisherMQ.URI" value="FromConnectors/TCP/193.1.1.77(1414)" />
+
+		
+	</appSettings>
+</configuration>

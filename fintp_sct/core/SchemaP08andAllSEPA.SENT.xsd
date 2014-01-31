@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+$HeadURL: https://svn.domain.bisnet.ro/svn/qPI/branches/SEPA/qPaySetup/images/ALL/XSD/SchemaP08andAllSEPA.SENT.xsd $
+$Revision: 14630 $ 
+$LastChangedDate: 2009-11-09 16:18:34 +0200 (Mon, 09 Nov 2009) $
+$LastChangedBy: cristinac $
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pacs.008.001.02="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.02" xmlns:pacs.004.001.02="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.02" xmlns:pacs.002.001.02="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.02" xmlns:camt.029.001.03="urn:iso:std:iso:20022:tech:xsd:camt.029.001.03" xmlns:camt.056.001.01="urn:iso:std:iso:20022:tech:xsd:camt.056.001.01" xmlns:ns1="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.03" xmlns:ns2="urn:iso:std:iso:20022:tech:xsd:AllSEPASchemas" targetNamespace="urn:iso:std:iso:20022:tech:xsd:AllSEPASchemas" elementFormDefault="qualified">
+	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.02" schemaLocation="pacs.008.001.02GrpHeader.xsd"/>
+	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.02" schemaLocation="pacs.004.001.02GrpHeader.xsd"/>
+	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.03" schemaLocation="pacs.002.001.03.xsd"/>
+	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.029.001.03" schemaLocation="camt.029.001.03GrpHeader.xsd"/>
+	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.056.001.01" schemaLocation="camt.056.001.01GrpHeader.xsd"/>
+</xs:schema>
