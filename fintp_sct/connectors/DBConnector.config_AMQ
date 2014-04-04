@@ -4,7 +4,7 @@
 	
 		<section name="Fetcher" type="DB" on="false"/>
 		<section name="Publisher" type="DB" on="true"/>
-		<section name="Filter_4" chain="Publisher" type="MQ" MQManagerType="AMQ" order="3"	WMQQueue="FromConnectors" WMQQMgr="qPIQM.MainHub"
+		<section name="Filter_4" chain="Publisher" type="MQ" MQManagerType="AMQ" order="3"	MQQueue="FromConnectors" MQQMgr="qPIQM.MainHub"
 			MQURI="tcp://localhost:61616"/>
 			
 	</configSections>

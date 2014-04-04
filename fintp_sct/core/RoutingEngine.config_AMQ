@@ -22,7 +22,7 @@
         <add key="EventsThreaded" value="true"/>
     
 		<add key="PoolInterval" value="5" />
-		<add key="WMQQueueManager" value="qPIQM.MainHub" />
+		<add key="MQQueueManager" value="qPIQM.MainHub" />
 		<add key="WMQChannelDefinition" value="FromConnectors/TCP/193.1.1.77(1414)" />
 				
 		
