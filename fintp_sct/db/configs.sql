@@ -19,6 +19,9 @@
 */
 
 
+
+INSERT INTO roles (roleid, name, description, usercreated) VALUES (17, 'SEPA Payments', 'n/a', 1);
+
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (6, 101, 0);
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (3, 101, 1);
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (1, 101, 2);
@@ -29,6 +32,9 @@ INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (9, 101, 7
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (10, 104, 12);
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (11, 104, 13);
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (12, 104, 14);
+
+INSERT INTO qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (13, 102, 2);
+INSERT INTO qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (14, 102, 3);
 COMMIT;
 
 
@@ -37,6 +43,8 @@ INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, 
 INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('FinTPDB000', 10, 3, 0, 50, '1/17/2014 3:22:01 PM', NULL, 'DB Service', 1, NULL, NULL, '52d7cccd-9b375f79-58440001', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('SEPAIn', 11, 3, 0, 0, '1/17/2014 3:22:01 PM', '', ' ', 1, 0, '', '52cd58c0-6b4f5f79-ad020001', 1, '', '', '', '');
 INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('BOSEPAOut', 12, 3, 0, 50, '1/17/2014 3:22:02 PM', '', ' ', 1, 1, '', '52d3b7e9-3b255f79-34460001', 1, '', '', '', '');
+
+INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('BOSEPAOut', 12, 3, 0, 50, '1/17/2014 3:22:02 PM', '', ' ', 1, 1, '', '52d3b7e9-3b255f79-34460001', 1, 'CTDupOutQueue', 'getHash.SepaOut.xslt', '', '');
 COMMIT;
 
 
@@ -44,16 +52,21 @@ INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, d
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (7, 'CTInQueue', 0, NULL, 101, 0, 'Intermediary queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (13, 'InvestigOutQueue', 0, NULL, 103, 0, 'Investigation queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (12, 'InvestigInQueue', 0, NULL, 103, 0, 'Investigation queue', 50, NULL);
-INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (11, 'BOSEPAInQueue', 0, NULL, 101, 0, 'Intermediary queue', 50, NULL);
+INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (11, 'BOSEPAInQueue', 0, 12, 101, 0, 'Intermediary queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (10, 'SEPAInQueue', 0, NULL, 101, 0, 'SEPA incomings entry queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (9, 'BOSEPAOutQueue', 0, NULL, 101, 0, 'SEPA outgoings entry queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (5, 'CTOutQueue', 0, 11, 101, 0, 'Credit Transfer authorization queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (103, 'Complete', 0, NULL, 103, 0, 'Complete queue', 10, '');
+
+INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (14, 'CTDupOutQueue', 0, NULL, 102, 0, 'Credit Transfer duplicates queue', 50, NULL);
 COMMIT;
 
 
 INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (1, 5, 103);
 INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (2, 5, 13);
+
+INSERT INTO qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (3, 14, 5);
+INSERT INTO qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (4, 14, 103);
 COMMIT;
 
 
@@ -84,7 +97,8 @@ INSERT INTO fincfg.usersecurity (pwddays, pwdlength, pwdno, retryno, pwdlower, p
 COMMIT;
 
 
-INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (6, 5, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (6, 5, 17, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (8, 14, 17, 'RW');
 COMMIT;
 
 

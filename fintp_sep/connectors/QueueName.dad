@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+$HeadURL: https://svn.domain.bisnet.ro/svn/qPI/trunk/qPaySetup/images/TEST/qPayConnectors/IDINPUT.dad $
+$Revision: 16923 $ 
+$LastChangedDate: 2011-02-24 10:30:23 +0200 (Thu, 24 Feb 2011) $
+$LastChangedBy: sabin $
+-->
+<DAD>
+<table name="xxidb_input"/>
+	<element_node name="BICEXP" type="varchar(8)"> 
+	<text_node>
+		<RDB_node>
+			<column name="BICEXP"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="BICDEST" type="varchar(8)"> 
+	<text_node>
+		<RDB_node>
+			<column name="BICDEST"/>
+		</RDB_node>
+	</text_node>
+	</element_node>  
+	<element_node name="TIPMESAJ" type="varchar(3)"> 
+	<text_node>
+		<RDB_node>
+			<column name="TIPMESAJ"/>
+		</RDB_node>
+	</text_node>
+	</element_node>   
+	<element_node name="NRREF" type="varchar(16)"> 
+	<text_node>
+		<RDB_node>
+			<column name="NRREF"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="NRREFDEST" type="varchar(16)"> 
+	<text_node>
+		<RDB_node>
+			<column name="NRREFDEST"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="DATAEMIT" type="DATEYYMMDD"> 
+	<text_node>
+		<RDB_node>
+			<column name="DATAEMIT"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="DATASCAD" type="DATEYYMMDD"> 
+	<text_node>
+		<RDB_node>
+			<column name="DATASCAD"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="SUMANT" type="numeric(17,2)"> 
+	<text_node>
+		<RDB_node>
+			<column name="SUMANT"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="MONEDA" type="varchar(3)"> 
+	<text_node>
+		<RDB_node>
+			<column name="MONEDA"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="SUMALT" type="numeric(17,2)"> 
+	<text_node>
+		<RDB_node>
+			<column name="SUMALT"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="IBANBN" type="varchar(24)"> 
+	<text_node>
+		<RDB_node>
+			<column name="IBANBN"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="NUMEBN" type="varchar(35)"> 
+	<text_node>
+		<RDB_node>
+			<column name="NUMEBN"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="IBANPL" type="varchar(24)"> 
+	<text_node>
+		<RDB_node>
+			<column name="IBANPL"/>
+		</RDB_node>
+	</text_node>
+	</element_node>  
+	<element_node name="NUMEPL" type="varchar(35)"> 
+	<text_node>
+		<RDB_node>
+			<column name="NUMEPL"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="CODPL" type="varchar(15)"> 
+	<text_node>
+		<RDB_node>
+			<column name="CODPL"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="EXPLICATII" type="varchar(140)"> 
+	<text_node>
+		<RDB_node>
+			<column name="EXPLICATII"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="IDGRP" type="varchar(35)"> 
+	<text_node>
+		<RDB_node>
+			<column name="IDGRP"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="REFUZPL" type="varchar(1)"> 
+	<text_node>
+		<RDB_node>
+			<column name="REFUZPL"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="REFREFUZ" type="varchar(16)"> 
+	<text_node>
+		<RDB_node>
+			<column name="REFREFUZ"/>
+		</RDB_node>
+	</text_node>
+	</element_node> 
+	<element_node name="IDGRPREFUZ" type="varchar(35)"> 
+	<text_node>
+		<RDB_node>
+			<column name="IDGRPREFUZ"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="CODREFUZ" type="varchar(3500)"> 
+	<text_node>
+		<RDB_node>
+			<column name="CODREFUZ"/>
+		</RDB_node>
+	</text_node>
+	</element_node> 
+	<element_node name="STARE" type="varchar(6)"> 
+	<text_node>
+		<RDB_node>
+			<column name="STARE"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="IDIMAGINE" type="BLOBdecodebase64"> 
+	<text_node>
+		<RDB_node>
+			<column name="IDIMAGINE"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+	<element_node name="DATATRAN" type="DATEYYMMDD"> 
+	<text_node>
+		<RDB_node>
+			<column name="DATATRAN"/>
+		</RDB_node>
+	</text_node>
+	</element_node>
+</DAD>
