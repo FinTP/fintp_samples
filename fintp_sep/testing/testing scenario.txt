@@ -2,17 +2,21 @@ TESTING SCENARIO
 
 0. Clean database
 	
-	delete ....;
+	delete from findata.entryqueue;
+	delete from findata.routedmessages;
+	delete from findata.feedbackagg;
+	delete from findata.batchjobs
+
 
 1. Send outgoing transactions to processing [BO app - > FinTP]
 	
 	update backoffice.sepout set coderoare = '0';
 
-**transactions are succesful acuuired?! when all records have values of '2' in the backoffice.sepout.coderoare field.
+**transactions are successfully acquired when all records have values of '2' in the backoffice.sepout.coderoare field.
 	
 2. (wait until all records reach findata.entryqueue table) Group transactions into a batch and send it towards the external system [FinTP -> AMQ]
 	
-	select test_createbatchrequest('ACHOutQueue', 'CoreBlkLrgRmtCdtTrf', '', '3112201423:00:00', 'BNKAROB0X', '140606', '', '', '', 52);
+	select findata.test_createbatchrequest('ACHOutQueue', 'CoreBlkLrgRmtCdtTrf', '', '3112201423:00:00', 'BNKAROB0X', '140606', '', '', '', 52);
 	
 	
 3. Edit the sample reply received from external application
