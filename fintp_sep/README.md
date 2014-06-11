@@ -125,10 +125,13 @@ If you choose to use AMQ config, edit the `EPconfigsAMQ.sql` file and change the
 
     psql -f EPconfigsAMQ.sql -d <database_name> -U postgres
 
-####11. Start FinTP
+####11. Create and configure a BO app database:    
+
+    psql -f BOstructure.sql -d <database_name> -U postgres
+
+####12. Start FinTP
  
 	./fintpStart.sh 
 
-####12. Install the FinTP interface [optional]
-
-####13. The initial user is admin.  [optional]
+####13. Install the FinTP interface 
+*the initial user is admin. 
