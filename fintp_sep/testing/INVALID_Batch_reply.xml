@@ -1,0 +1,16 @@
+<BlkRjct xmlns="urn:swift:xs:BlkRjct">
+  <GrpHdr>
+    <GrpId>20071026000000003243</GrpId>
+    <IndvItmTtlNb>1</IndvItmTtlNb>
+    <CreDt>2014-06-11T14:51:49.497+03:00</CreDt>
+    <Stts>INVALID</Stts>
+  </GrpHdr>
+  <AddtlRefs>
+    <Ref>batch_id</Ref>
+    <RefIssr>SPXAROB0</RefIssr>
+  </AddtlRefs>
+  <BlkPmtErrHdlg>
+    <AddDesc>error.tran.amount*20.582.924,39*4.540.426,11</AddDesc>
+    <ErrCd>9</ErrCd>
+  </BlkPmtErrHdlg>
+</BlkRjct>
