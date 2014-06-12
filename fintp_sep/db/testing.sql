@@ -108,9 +108,9 @@ BEGIN
        ' trim( max (guid) over ( partition by ceil(rn/$1) ) ) batchuid '||                 
     ' from '||
       '( select guid, receiver, amount, row_number() over () rn, count(receiver) over (partition by receiver) tm '||
-       ' from findata.'||v_qreportingview|| ' where queuename = $2 and insertdate <= $3 '||v_filterfields||
+       ' from findata.'||v_qreportingview|| ' where queuename = $2 '||v_filterfields||
      ' ) tmp '  
-  using  v_maxbatchcnt, inQueueName, to_timestamp(intimekey, 'ddmmyyyyhh24:mi:ss');       
+  using  v_maxbatchcnt, inQueueName;       
   loop          
      fetch v_msgs into v_guid, v_func, v_batchuid;
      exit when not found;
