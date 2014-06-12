@@ -65,6 +65,13 @@ INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype
 INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (210, 21, 5, 100, 0, 'transform', NULL, NULL, NULL, 'TransformMessage(SwiftToDBBO.xslt)');
 INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (211, 22, 5, 100, 0, 'transform', NULL, NULL, NULL, 'TransformMessage(DBBOToSwift.xslt)');
 INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (249, 103, 99, 100, 0, 'complete msg', NULL, NULL, NULL, 'Complete');
+INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (202, 19, 5, 140, 0, 'send negative answer to BO', NULL, 'IsNack()==true', NULL, 'SendReply()');
+INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (203, 19, 5, 150, 0, 'aggregate interface ack', NULL, 'IsReply(urn:swift:xs:CoreBlkLrgRmtCdtTrf)==true', 'FEEDBACKCODE==FTM00', 'Aggregate');
+INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (204, 19, 5, 160, 0, 'complete interm replies', NULL, 'IsReply()==true', NULL, 'Complete');
+INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (201, 19, 5, 120, 0, 'send positive answer to BO', NULL, 'IsAck()==true', NULL, 'SendReply()');
+INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (213, 23, 5, 100, 0, 'transform', NULL, NULL, NULL, 'TransformMessage(SwiftToDBBO.xslt)');
+INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (214, 24, 5, 100, 0, 'transform', NULL, NULL, NULL, 'TransformMessage(DBBOToSwift.xslt)');
+
 COMMIT;
 
 --queuesrolemap
