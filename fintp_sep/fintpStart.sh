@@ -3,7 +3,7 @@
 
 
 
-echo "Status of FinTP Core Services"
+echo "Satrting FinTP Core Services"
 
 for service in $FINTPCORESTART ; do
 	start_service $FINTPCOREPATH $service
