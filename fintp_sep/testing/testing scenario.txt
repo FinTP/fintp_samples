@@ -1,33 +1,46 @@
 TESTING SCENARIO
 
-0. Clean database
-	
+0. Clean database before starting the test
+   ...by executing the following statements on FinTP DB:
+  
 	delete from findata.entryqueue;
 	delete from findata.routedmessages;
 	delete from findata.feedbackagg;
 	delete from findata.batchjobs;
-        delete from findata.batchrequests;
-        delete from backoffice.sepin;
+    delete from findata.batchrequests;
+    delete from backoffice.sepin;
 
+-------------------PART 1: BackOffice(BO) to External system(FTM) -------------------------
 
-1. Send outgoing transactions to processing [BO app - > FinTP]
+1. Send outgoing messages to processing (CoreBlkLrgRmtCdtTrf related to credit transfer instructions)
 	
-	update backoffice.sepout set coderoare = '0';
+  Mark the messages available in the BO interface table as ready to be taken over towards processing
+     ...by executing the following statement on FinTP DB - BO app schema
+	 update backoffice.sepout set coderoare = '0';
 
-**transactions are successfully acquired when all records have values of '2' in the backoffice.sepout.coderoare field.
+	**the [FTPBOSEP]Connector ( source code DbConnector-Fetcher) transports the marked messages to FinTP configured AMQ queue [FromConnectors]
+    **the [DB]Connector (source code DbConnector-Publisher) gathers the messages from this queue and pushes them into FinTP DB [findata.entryqueue]
+    **transactions are successfully processed to FinTP DB when all records have values of '2' in the backoffice.sepout.coderoare field.
 
 	
-2. (wait until all records reach findata.entryqueue table) Group transactions into a batch and send it towards the external system [FinTP -> AMQ]
+2. Simulating the user action of grouping the received messages into a batch and sending them towards the external system
+   ...by checking if all records reach findata.entryqueue table
+      select count(*) from findata.entryqueue; (should return 8)
+   ...then executing the following statement on FinTP DB 
+   select findata.test_createbatchrequest('ACHOutQueue', 'CoreBlkLrgRmtCdtTrf', '', '3112201423:00:00', 'BNKAROB0', '140606', '', '', '', '');
 	
-	select findata.test_createbatchrequest('ACHOutQueue', 'CoreBlkLrgRmtCdtTrf', '', '3112201423:00:00', 'BNKAROB0', '140606', '', '', '', '');
-	
-	
-3. Edit the sample reply message received from external application
+   **the RoutingEngine starts the batching mechanism and pushes the resulted output into an intermediary AMQ queue [ACH.ToConnector]	
+   **the [FTPACHSTP]Connector ( source code MqConnector-Publisher) transports the queue content to the final AMQ queue destination [FINTPtoFTM]
    
-   Replace the batch_id value in INVALID_Batch_reply.xml file with the value found in findata.batchjobs.combatchid field.
+    
+-------------------PART 2: External system (FTM) back to BackOffice (BO) -------------------------	
+	
+3. Simulating a reply message received from the external system as a response to the created batch file   
+   ..by putting the content of the INVALID_Batch_reply.xml file in the FTMtoFINTP AMQ queue ( AMQ web administration console)
+   ..and replacing the <Ref>batch_id</Ref> value with the value found in findata.batchjobs.combatchid field.
 
-
-4. Paste the content of the newly edited INVALID_Batch_reply.xml file in the FTMtoFINTP AMQ queue.
-
-
-5. The reply should be sent to the BO app in the backoffice.sepin table
+	**the [FTPACHSTP]Connector (source code MqConnector-Fetcher) takes over the message and transports it to FinTP configured AMQ queue [FromConnectors]
+	**the [DB]Connector (source code DbConnector-Publisher) gathers the message from this queue and pushes it into FinTP DB [findata.entryqueue]
+	**the RoutingEngine processes it and correlates it accordingly to the source message transactions
+	**at the end of the processing, the RoutingEngine pushes the response message into an intermediary AMQ queue [BOA.ToConnector]
+	**the [FTPBOSEP]Connector (source code DbConnector-Publisher) queries this queue and sends the notification of the response to the FinTP DB - BO app (backoffice.sepin table)
