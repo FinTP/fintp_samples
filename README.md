@@ -2,7 +2,7 @@ fintp_samples
 =============
 
 Sample FinTP configurations. 
-Every folder of this repository contains configurations scrips and delaited instructions tu run a Business Flow.
+Every folder of this repository contains configurations scrips and detailed instructions tu run a Business Flow.
 Usually a Business Flow comprieses a complete round trip of business messages exchange: form bank backoffice application to external interface applications and back processing of reply messages from external applications to bank backoffice.
 
 Requirements
