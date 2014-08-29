@@ -11,7 +11,7 @@ Requirements
 
 # 2. Installation and configuration
 
-Follow the following steps to setup an environment that implements SEP - ACH flow
+Follow the next steps to setup an environment that help you implement a sample of SEP - ACH flow
 
 ## Steps on ActiveMQ/WebSphereMQ server
 
@@ -113,7 +113,7 @@ Pay attention to data about your AMQ connection
 Edit `EventsWatcher.config` - customize it according to your environment. 
 Pay attention to data about your AMQ connection
 
-####10. Create and configure the  fintp database:
+####10. Create and configure the fintp database:
 
 Follow the steps in Installation section in the [fintp_db project](https://github.com/FinTP/fintp_db/README.md)
 
