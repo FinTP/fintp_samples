@@ -20,7 +20,7 @@
 
 
 
-INSERT INTO roles (roleid, name, description, usercreated) VALUES (17, 'SEPA Payments', 'n/a', 1);
+INSERT INTO fincfg.roles (roleid, name, description, usercreated) VALUES (17, 'SEPA Payments', 'n/a', 1);
 
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (6, 101, 0);
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (3, 101, 1);
@@ -33,8 +33,8 @@ INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (10, 104, 
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (11, 104, 13);
 INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (12, 104, 14);
 
-INSERT INTO qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (13, 102, 2);
-INSERT INTO qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (14, 102, 3);
+INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (13, 102, 2);
+INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (14, 102, 3);
 COMMIT;
 
 
@@ -65,8 +65,8 @@ COMMIT;
 INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (1, 5, 103);
 INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (2, 5, 13);
 
-INSERT INTO qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (3, 14, 5);
-INSERT INTO qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (4, 14, 103);
+INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (3, 14, 5);
+INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (4, 14, 103);
 COMMIT;
 
 
