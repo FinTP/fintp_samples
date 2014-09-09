@@ -38,12 +38,7 @@ INSERT INTO fincfg.qtypeactionmaps (mapid, qtypeid, qactionid) VALUES (14, 102, 
 COMMIT;
 
 
-INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('EventsWatcher', 1, 3, 0, 0, '1/17/2014 3:22:00 PM', NULL, NULL, 0, NULL, NULL, '52cfba4a-5b125f79-c8a80001', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('RoutingEngine', 3, 3, 0, 0, '1/17/2014 3:22:00 PM', NULL, NULL, 0, NULL, NULL, '52d7b1c8-3bad5f79-a31c0001', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('FinTPDB000', 10, 3, 0, 50, '1/17/2014 3:22:01 PM', NULL, 'DB Service', 1, NULL, NULL, '52d7cccd-9b375f79-58440001', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('SEPAIn', 11, 3, 0, 0, '1/17/2014 3:22:01 PM', '', ' ', 1, 0, '', '52cd58c0-6b4f5f79-ad020001', 1, '', '', '', '');
-INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('BOSEPAOut', 12, 3, 0, 50, '1/17/2014 3:22:02 PM', '', ' ', 1, 1, '', '52d3b7e9-3b255f79-34460001', 1, '', '', '', '');
-
 INSERT INTO fincfg.servicemaps (friendlyname, serviceid, status, lastsessionid, heartbeatinterval, lastheartbeat, "version", partner, servicetype, ioidentifier, exitpoint, sessionid, duplicatecheck, duplicateq, duplicatemap, duplicatenotifq, delayednotifq) VALUES ('BOSEPAOut', 12, 3, 0, 50, '1/17/2014 3:22:02 PM', '', ' ', 1, 1, '', '52d3b7e9-3b255f79-34460001', 1, 'CTDupOutQueue', 'getHash.SepaOut.xslt', '', '');
 COMMIT;
 
@@ -69,6 +64,14 @@ INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (3, 
 INSERT INTO fincfg.qmoveprivmaps (mapid, sourcequeueid, destqueueid) VALUES (4, 14, 103);
 COMMIT;
 
+INSERT INTO fincfg.timelimits (guid, limitname, limittime) VALUES (1, 'Start app', '12/9/2013 00:00:01');
+INSERT INTO fincfg.timelimits (guid, limitname, limittime) VALUES (2, 'Stop app', '12/9/2013 23:59:59');
+COMMIT;
+
+
+INSERT INTO fincfg.routingschemas (name, description, active, guid, startlimit, stoplimit, sessioncode, isvisible) VALUES ('SEPA', 'SEPA routing schema', 1, 3, 1, 2, 'SEPA', '0');
+COMMIT;
+
 
 INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (175, 5, 3, 100, 0, 'hold message in queue', NULL, NULL, NULL, 'ChangeHoldStatus(true)');
 INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (180, 10, 3, 300, 0, 'move CT', 'MT==FIToFICstmrCdtTrf', NULL, NULL, 'MoveTo(CTInQueue)');
@@ -82,15 +85,6 @@ INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype
 INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype, description, msgcond, funccond, metacond, "action") VALUES (182, 7, 3, 200, 0, 'move to BOSEPAInQueue', NULL, NULL, NULL, 'MoveTo(BOSEPAInQueue)');
 COMMIT;
 
-
-INSERT INTO fincfg.timelimits (guid, limitname, limittime) VALUES (1, 'Start app', '12/9/2013 00:00:01 AM');
-INSERT INTO fincfg.timelimits (guid, limitname, limittime) VALUES (2, 'Stop app', '12/9/2013 23:59:59 PM');
-COMMIT;
-
-
-
-INSERT INTO fincfg.routingschemas (name, description, active, guid, startlimit, stoplimit, sessioncode, isvisible) VALUES ('SEPA', 'SEPA routing schema', 1, 3, 1, 2, 'SEPA', '0');
-COMMIT;
 
 
 INSERT INTO fincfg.usersecurity (pwddays, pwdlength, pwdno, retryno, pwdlower, pwdupper, passno) VALUES (900, 0, 0, 9, 0, 0, 0);
@@ -118,9 +112,6 @@ COMMIT;
 
 
 
-INSERT INTO findata.serviceperformance (serviceid, insertdate, mintransactiontime, maxtransactiontime, meantransactiontime, sequenceno, ioidentifier, sessionid, commitedtrns, abortedtrns) VALUES (1, '1/27/2014 2:02:44 PM', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO findata.serviceperformance (serviceid, insertdate, mintransactiontime, maxtransactiontime, meantransactiontime, sequenceno, ioidentifier, sessionid, commitedtrns, abortedtrns) VALUES (3, '1/27/2014 2:02:51 PM', 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO findata.serviceperformance (serviceid, insertdate, mintransactiontime, maxtransactiontime, meantransactiontime, sequenceno, ioidentifier, sessionid, commitedtrns, abortedtrns) VALUES (10, '1/27/2014 2:03:10 PM', 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO findata.serviceperformance (serviceid, insertdate, mintransactiontime, maxtransactiontime, meantransactiontime, sequenceno, ioidentifier, sessionid, commitedtrns, abortedtrns) VALUES (11, '1/27/2014 2:03:16 PM', 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO findata.serviceperformance (serviceid, insertdate, mintransactiontime, maxtransactiontime, meantransactiontime, sequenceno, ioidentifier, sessionid, commitedtrns, abortedtrns) VALUES (12, '1/27/2014 2:03:22 PM', 0, 0, 0, 0, 0, 0, 0, 0);
 COMMIT;
