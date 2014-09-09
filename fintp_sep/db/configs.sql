@@ -75,8 +75,8 @@ INSERT INTO fincfg.routingrules (guid, queueid, schemaguid, "sequence", ruletype
 COMMIT;
 
 --queuesrolemap
-INSERT INTO queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (2652, 39, 2, 'RW');
-INSERT INTO queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (10, 20, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (2652, 39, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (10, 20, 2, 'RW');
 
 Insert into FINCFG.USERS (USERID, USERNAME, PASSWORD, SKINCOLOR, ISLOCKED, NORETRY, PAYMSETPREF, QSETPREF)
  Values  (52, 'admin', '670657fe99ad06927fbe160317f55d57cf8060a7e2f327b9c2b15859e4bac62135ad0045fd0ab1c4','Blue', 0, 4, 'all', 'all');
