@@ -94,6 +94,9 @@ COMMIT;
 INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (6, 5, 17, 'RW');
 INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (8, 14, 17, 'RW');
 COMMIT;
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (6, 5, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (8, 14, 2, 'RW');
+COMMIT;
 
 
 INSERT INTO fincfg.users (userid, username, "password", firstname, lastname, skincolor, islocked, noretry, email, passdate, paymsetpref, qsetpref) VALUES (999, 'user1', 'cVBheWFkbWluYzQzNnY=', 'user', NULL, 'Blue', 0, 0, NULL, '1/17/2014', 'all', 'all');
