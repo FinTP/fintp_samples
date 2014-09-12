@@ -20,16 +20,16 @@ Follow the following steps to setup an environment that implements the requireme
 
 ```
     - BOSAAtoFINTP
-    - BOSAAtoFINTP.bck`
-    - BOSEPA.ToConnector`
+    - BOSAAtoFINTP.bck
+    - BOSEPA.ToConnector
     - SEPA.ToConnector
     - Events
     - FINTPtoBOSAA
     - FromConnectors
     - MQHA.ToApp
     - MQHA.FromApp
-    - MQHA.FromApp.bck`
-```
+    - MQHA.FromApp.bck
+    
 
 ## Steps on FinTP server
 
