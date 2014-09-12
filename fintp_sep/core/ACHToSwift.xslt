@@ -1,3 +1,23 @@
+<!--
+* FinTP - Financial Transactions Processing Application
+* Copyright (C) 2013 Business Information Systems (Allevo) S.R.L.
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>
+* or contact Allevo at : 031281 Bucuresti, 23C Calea Vitan, Romania,
+* phone +40212554577, office@allevo.ro <mailto:office@allevo.ro>, www.allevo.ro.
+-->
+
 <?xml version="1.0"?>
 <xsl:stylesheet  version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	xmlns:cdttrf="urn:swift:xsd:CoreBlkLrgRmtCdtTrf" 
@@ -5,9 +25,7 @@
 	xmlns:cbddrfl="urn:swift:xs:CoreBlkDDbtRfl">
 <xsl:output method="xml" encoding="us-ascii" omit-xml-declaration="yes" />
 
-<!-- 25.01.2006 Modificat pentru mesaje MT104
 
--->
 <xsl:template match="/">
 	<xsl:choose>
 		<xsl:when test="cdttrf:CoreBlkLrgRmtCdtTrf" >
@@ -25,8 +43,7 @@
    
 <xsl:template match="cdttrf:CoreBlkLrgRmtCdtTrf">
 
-<!-- Se va primi un xml de forma : <CoreBlk...CdtTrf><GrpHdr> ...</GrpHdr><CdtTrf> .... </CdtTrf><CoreBlk...CdtTrf> -->
-  
+
     <xsl:element name="smt:MTCoreBlkLrgRmtCdtTrf"  namespace="urn:xmlns:SWIFTMTs">
 			
 		<xsl:element name="sg:AckNack" namespace="urn:xmlns:SWIFTgenerics"/>
@@ -190,13 +207,7 @@
      							
      				</xsl:element>
      				
-					<!-- :50K:/IBANPL		sau /. (daca e NULL)
-							  	 NUMEPL         			sau .
-							    ADRESAPL					sau .
-							    ADRESAPL (continuare) 	sau .
-							    CODPL			      	sau .
-							  
-					-->
+				
 					<xsl:element name="smt:tag50K" namespace="urn:xmlns:SWIFTMTs">
 						<xsl:attribute name="tagValue">
 							<xsl:variable name="VEnter"  select ="string('&#xA;')" />
