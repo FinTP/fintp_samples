@@ -59,7 +59,7 @@ Follow the next steps to setup an environment that help you implement a sample o
     - EventsWatcher binary
     - RoutingEngine.config example    
     - EventsWatcher.config example 
-    - all .xslt and .xsd files from /core
+    - all .xslt files from /core
 ```
 
 ####5. In the **fintp/connectors** folder copy the following files:
@@ -69,7 +69,7 @@ Follow the next steps to setup an environment that help you implement a sample o
     - FTPBOSEPConnector.config example
     - DBConnector.config example 
     - FTPACHSTPConnector.config example
-    - all .xslt, .dad and .pfx files from /connectors
+    - all .xslt and .dad files from /connectors
 ```
 
 ####6. Create the following links in **fintp/connectors** folder (this will create the necessary connectors)
