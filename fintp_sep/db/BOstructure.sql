@@ -18,7 +18,15 @@
 * phone +40212554577, office@allevo.ro <mailto:office@allevo.ro>, www.allevo.ro.
 */
 
+
+
 --backoffice schema and user should exist
+
+
+GRANT ALL ON SCHEMA backoffice TO backoffice;
+
+
+
 
 -- Table: backoffice.sepin
 

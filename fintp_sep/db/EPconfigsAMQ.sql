@@ -3,11 +3,11 @@ update fincfg.servicemaps set
 where serviceid = 17;
 
 update fincfg.servicemaps set 
-  exitpoint = 'Q=ACH.ToConnector;QM={host};CH=tcp://{host}:61616;RO=MQRO_NAN+MQRO_PAN+MQRO_COPY_MSG_ID_TO_CORREL_ID;S=cblrct.xsd;NS=urn:swift:xsd:CoreBlkLrgRmtCdtTrf;MQT=AMQ;' 
+  exitpoint = 'Q=ACH.ToConnector;QM={host};CH=tcp://{host}:61616;RO=MQRO_NAN+MQRO_PAN+MQRO_COPY_MSG_ID_TO_CORREL_ID;NS=urn:swift:xsd:CoreBlkLrgRmtCdtTrf;MQT=AMQ;' 
 where serviceid = 18;
 
 update fincfg.servicemaps set 
-  exitpoint = 'Q=ACH.ToConnector;QM={host};CH=tcp://{host}:61616;RO=MQRO_NAN+MQRO_PAN+MQRO_COPY_MSG_ID_TO_CORREL_ID;S=cblrct.xsd;NS=urn:swift:xsd:CoreBlkLrgRmtCdtTrf;MQT=AMQ;' 
+  exitpoint = 'Q=ACH.ToConnector;QM={host};CH=tcp://{host}:61616;RO=MQRO_NAN+MQRO_PAN+MQRO_COPY_MSG_ID_TO_CORREL_ID;NS=urn:swift:xsd:CoreBlkLrgRmtCdtTrf;MQT=AMQ;' 
 where serviceid = 15;
 
 update fincfg.servicemaps set 
