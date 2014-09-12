@@ -34,21 +34,19 @@
 		<add key="AppToMQSeries.BackupQueue" value="BOSAAtoQPAY.bck" />
 		<add key="AppToMQSeries.QueueManager" value="qPIQM.MainHub"/>
 		<add key="AppToMQSeries.StrictSWIFTFormat" value="SAA_FIN" />
-		<!--add key="AppToMQSeries.LAUCertificateFile" value="1234567890ABCDEE0987654321EEDCBA" /-->
+
 		
 		<add key="MQToApp.Type" value="WMQ" /><!--"WMQ | AMQ"-->
 		<add key="MQToApp.MQURI" value="qPI.FromConnectors/TCP/193.1.1.77(1414)"/><!--channnel_definition | uri_server" -->
 		<add key="MQSeriesToApp.WatchQueue" value="qPBOSEPA.ToConnector"/>
 		<add key="MQSeriesToApp.AppQueue" value="QPAYtoBOSAA"/>
 		<add key="MQSeriesToApp.QueueManager" value="qPIQM.MainHub"/>
-	
-		<!--add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA" /-->
 		<add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA_FIN" />
-		<!--add key="MQSeriesToApp.LAUCertificateFile" value="1234567890ABCDEE0987654321EEDCBA" /-->
+
 				                                              	   
 
 		
-		<!--add key="LogMaxLines" value="500000"/-->
+
 
 		<add key="EventsThreaded" value="true" />
 		<add key="Log.PublisherMQ.Type" value="WMQ" /><!--"WMQ | AMQ"-->
