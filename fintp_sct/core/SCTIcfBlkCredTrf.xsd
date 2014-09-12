@@ -1,7 +1,24 @@
+<!--
+* FinTP - Financial Transactions Processing Application
+* Copyright (C) 2013 Business Information Systems (Allevo) S.R.L.
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>
+* or contact Allevo at : 031281 Bucuresti, 23C Calea Vitan, Romania,
+* phone +40212554577, office@allevo.ro <mailto:office@allevo.ro>, www.allevo.ro.
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- STEP2 SCT Schema, SCTIcfBlkCredTrf, March 23th 2012, Release November 2012  -->
-<!-- STEP2 SCT Shift camt.056 after pacs.008 in sequence and counter, February 25 2010 -->
-<!-- STEP2 SCT Changed SrvcID into SrvcId, March 02 2010 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sw8="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.02" xmlns:sw4="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.02" xmlns:sw6="urn:iso:std:iso:20022:tech:xsd:camt.056.001.01" xmlns:sw9="urn:iso:std:iso:20022:tech:xsd:camt.029.001.03" xmlns:S2SCTIcf="urn:S2SCTIcf:xsd:$SCTIcfBlkCredTrf" targetNamespace="urn:S2SCTIcf:xsd:$SCTIcfBlkCredTrf" elementFormDefault="qualified">
 	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.02" schemaLocation="pacs.008.001.02.xsd"/>
 	<xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.02" schemaLocation="pacs.004.001.02.xsd"/>
