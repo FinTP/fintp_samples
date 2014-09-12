@@ -28,20 +28,19 @@
 		<add key="AppToMQSeries.QueueManager" value="qPIQM.MainHub"/>
 		<add key="AppToMQ.MQURI" value="tcp://localhost:61616"/>
 		<add key="AppToMQSeries.StrictSWIFTFormat" value="SAA_FIN" />
-		<!--add key="AppToMQSeries.LAUCertificateFile" value="1234567890ABCDEE0987654321EEDCBA" /-->
+
 		
 		<add key="MQToApp.Type" value="AMQ" />
 		<add key="MQSeriesToApp.WatchQueue" value="BOSEPA.ToConnector"/>
 		<add key="MQSeriesToApp.AppQueue" value="FINTPtoBOSAA"/>
 		<add key="MQSeriesToApp.QueueManager" value="qPIQM.MainHub"/>
 		<add key="MQToApp.MQURI" value="tcp://localhost:61616"/>
-		<!--add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA" /-->
 		<add key="MQSeriesToApp.StrictSWIFTFormat" value="SAA_FIN" />
-		<!--add key="MQSeriesToApp.LAUCertificateFile" value="1234567890ABCDEE0987654321EEDCBA" /-->
+
 				                                              	   
 
 		
-		<!--add key="LogMaxLines" value="500000"/-->
+
 
 		<add key="EventsThreaded" value="true" />
 		<add key="Log.PublisherMQ.Type" value="AMQ" />
