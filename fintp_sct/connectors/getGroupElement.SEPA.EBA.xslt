@@ -1,10 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
-$HeadURL: https://svn.domain.bisnet.ro/svn/qPI/branches/SEPA/qPaySetup/images/TEST/qPayConnectors/getGroupElement.SEPA.xslt $
-$Revision: 16072 $ 
- $LastChangedDate: 2010-06-29 10:44:33 +0300 (Tue, 29 Jun 2010) $
- $LastChangedBy: cristinac $
+* FinTP - Financial Transactions Processing Application
+* Copyright (C) 2013 Business Information Systems (Allevo) S.R.L.
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>
+* or contact Allevo at : 031281 Bucuresti, 23C Calea Vitan, Romania,
+* phone +40212554577, office@allevo.ro <mailto:office@allevo.ro>, www.allevo.ro.
 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	xmlns:cdttrf="urn:swift:xsd:CoreBlkLrgRmtCdtTrf" 
 	
