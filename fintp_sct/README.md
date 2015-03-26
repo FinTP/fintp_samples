@@ -11,7 +11,7 @@ Requirements
 
 # 2. Installation and configuration
 
-Follow the following steps to setup an environment that implements the requirements detailed in the [outgoing sepa credit transfer scenario](http://www.fintp.org/releases/fintp-usage-scenarios/scenario-outgoing-sepa-credit-transfer/)
+Take the following steps to setup an environment that implements the requirements detailed in the [outgoing sepa credit transfer scenario](http://www.fintp.org/releases/fintp-usage-scenarios/scenario-outgoing-sepa-credit-transfer/)
 
 ## Steps on ActiveMQ/WebSphereMQ server
 
