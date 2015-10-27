@@ -37,16 +37,9 @@ INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, d
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (24, 'BORTNACHOutQueue', 0, NULL, 101, 0, 'SEP:ACH outgoing returns entry queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (25, 'RTNACHOutQueue', 0, 18, 101, 1000, 'SEP:ACH returns authorization queue', 50, NULL);
 INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (39, 'ACHDupOutQueue', 0, NULL, 102, 0, 'SEP:ACH outgoings duplicate queue', 50, NULL);
-INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (13, 'InvestigOutQueue', 0, NULL, 103, 0, 'Investigation queue', 50, NULL);
-INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (12, 'InvestigInQueue', 0, NULL, 103, 0, 'Investigation queue', 50, NULL);
-INSERT INTO fincfg.queues (guid, name, holdstatus, connector, typeid, batchno, description, priority, autobatchtime) VALUES (103, 'Complete', 0, NULL, 103, 0, 'Complete queue', 10, '');
 COMMIT;
 
 
-
-INSERT INTO fincfg.timelimits (guid, limitname, limittime) VALUES (2, 'Stop app', '12/9/2013 8:15:57 PM');
-INSERT INTO fincfg.timelimits (guid, limitname, limittime) VALUES (1, 'Start app', '12/9/2013 8:45:52 AM');
-COMMIT;
 
 INSERT INTO fincfg.routingschemas (name, description, active, guid, startlimit, stoplimit, sessioncode, isvisible) VALUES ('SEP-ACH', 'SEP:ACH routing schema', 1, 5, 1, 2, 'ACH', '0');
 INSERT INTO fincfg.routingschemas (name, description, active, guid, startlimit, stoplimit, sessioncode, isvisible) VALUES ('FTP', 'complete msgs schema', 1, 99, 1, 2, 'FTP', '1');
@@ -76,15 +69,15 @@ COMMIT;
 
 --queuesrolemap
 INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (2652, 39, 2, 'RW');
-INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (10, 20, 2, 'RW');
-
-Insert into FINCFG.USERS (USERID, USERNAME, PASSWORD, SKINCOLOR, ISLOCKED, NORETRY, PAYMSETPREF, QSETPREF)
- Values  (52, 'admin', '670657fe99ad06927fbe160317f55d57cf8060a7e2f327b9c2b15859e4bac62135ad0045fd0ab1c4','Blue', 0, 4, 'all', 'all');
-COMMIT;
-
-
-Insert into FINCFG.USERSROLEMAP   (MAPID, USERID, ROLEID) Values  (1, 52, 2);
-COMMIT;
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (200, 19, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (201, 22, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (202, 20, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (203, 21, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (204, 23, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (205, 24, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (206, 25, 2, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (207, 20, 18, 'RW');
+INSERT INTO fincfg.queuesrolemap (mapid, queueid, roleid, actiontype) VALUES (208, 25, 18, 'RW');
 
 
 INSERT INTO findata.serviceperformance (serviceid, insertdate, mintransactiontime, maxtransactiontime, meantransactiontime, sequenceno, ioidentifier, sessionid, commitedtrns, abortedtrns) VALUES (15, '4/4/2014 4:48:48 PM', 0, 0, 0, 0, 0, 0, 0, 0);
