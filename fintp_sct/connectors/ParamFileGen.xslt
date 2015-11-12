@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
 * FinTP - Financial Transactions Processing Application
 * Copyright (C) 2013 Business Information Systems (Allevo) S.R.L.
@@ -17,8 +18,6 @@
 * or contact Allevo at : 031281 Bucuresti, 23C Calea Vitan, Romania,
 * phone +40212554577, office@allevo.ro <mailto:office@allevo.ro>, www.allevo.ro.
 -->
-
-<?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:p02="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwGbl="urn:swift:snl:ns.SwGbl" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec" xmlns="urn:swift:saa:xsd:saa.2.0" xmlns:external="http://extensions.bisnet.ro" exclude-result-prefixes="p02 p08 wsrm wsu external">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" standalone="yes" omit-xml-declaration="no"/>
 	<xsl:strip-space elements="*"/>
