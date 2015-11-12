@@ -25,10 +25,10 @@
 		<section name="Fetcher" type="MQ" on="true"/>
 		<section name="Publisher" type="MQ" on="true"/>
 		
-		<section name="Filter_I1" chain="Fetcher" type="TEMPLATE" order="0" Template="/home/fintp/fintp/connectors/SWIFT.template.xml"  /> 
+		<section name="Filter_I1" chain="Fetcher" type="TEMPLATE" order="0" Template="SWIFT.template.xml"  /> 
 		<section name="Filter_I2" chain="Fetcher" type="BASE64" order="1" 
 			XPATH="/root/Transformed/SWIFTFORMAT" KeepOriginal="yes"/> 
-		<section name="Filter_I3" chain="Fetcher" type="XSLT" order="2" XSLTFILE="/home/fintp/fintp/connectors/SWIFT2FINTP.xslt" />
+		<section name="Filter_I3" chain="Fetcher" type="XSLT" order="2" XSLTFILE="SWIFT2FINTP.xslt" />
 		<section name="Filter_I4" chain="Fetcher" type="MQ" order="3" MQManagerType="AMQ"
 			MQQueue="FromConnectors" MQQMgr="qPIQM.MainHub"
 			MQURI="tcp://localhost:61616" />
