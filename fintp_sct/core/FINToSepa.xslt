@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="us-ascii"?>
 <!--
 * FinTP - Financial Transactions Processing Application
 * Copyright (C) 2013 Business Information Systems (Allevo) S.R.L.
